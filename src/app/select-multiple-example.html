@@ -1,0 +1,34 @@
+<!--Cuando la *lista de tipo: "Array of objs" y *ngModel es "obj" -->
+
+<mat-form-field>
+  <mat-select multiple placeholder="Toppings" [(ngModel)]="selectedObjects" [compareWith]="comparer">
+    <mat-option *ngFor="let el of toppingList" [value]="el">
+      {{el.label}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<p>{{selectedObjects | json}}</p>
+
+<br>
+
+<!-- Cuando la *lista de tipo "Array of objs" y *ngModel es "array" -->
+<mat-form-field>
+  <mat-select multiple placeholder="Test" [(ngModel)]="selectedObjectsFromArray">
+    <mat-option *ngFor="let el of toppingList" [value]="el.value">
+      {{el.label}}
+    </mat-option>
+
+  </mat-select>
+</mat-form-field>
+
+<p>{{selectedObjectsFromArray}}</p>
+
+
+<!-- <mat-form-field appearance="fill">
+  <mat-label>Toppings</mat-label>
+  <mat-select [formControl]="toppings" multiple>
+    <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+ -->
